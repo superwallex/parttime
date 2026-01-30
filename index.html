@@ -1,18 +1,15 @@
 <!-- Chosen Palette: Warm Neutral Professional (Soft Beige Background #fdfbf7, Slate Text, Sage Green Accents) -->
 <!-- Application Structure Plan:
-     1. Header: Title and broad mission statement.
-     2. Analytics Section: Two Chart.js canvases wrapped in responsive containers to visualize Salary and Category data.
-     3. Filter & Search Controls: To allow users to sort through the 13 options based on their needs.
-     4. Opportunity Grid: Dynamic generation of cards based on the JSON data.
-     5. Detail Modal: A hidden overlay that populates with specific 'Research' data (Link, Strategy, Analysis) when a card is clicked.
-     
-     UPDATE: Added custom sorting logic to the grid rendering to prioritize "High Suitability" items first.
+     1. BRAND HEADER (NEW): Top bar with "Super WALL-E" branding, Logo, and X link.
+     2. App Navbar: Title of the specific tool ("Global Remote Work Explorer").
+     3. Analytics Section: Visualizations for Salary and Category.
+     4. Filter & Sort Logic: Prioritizes 'High Suitability'.
+     5. Opportunity Grid: Dynamic cards.
+     6. Detail Modal: With fixed footer for direct access.
 -->
 <!-- Visualization & Content Choices:
-     1. Earnings Chart (Bar): Goal -> Compare financial potential.
-     2. Category Chart (Doughnut): Goal -> Understand the landscape of work types.
-     3. Suitability Badges (Text/Color): Goal -> Quick visual reference for Chinese applicants.
-     4. Detail Modal: Goal -> Present the heavy text 'research'.
+     - Top Bar: Dark slate theme to distinguish branding from app controls.
+     - Logo: Uses uploaded image 'Gemini_Generated_Image_yemgrtyemgrtyemg.jpg'.
 -->
 <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
@@ -21,14 +18,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>全球远程工作机会探索中心 | 13个平台深度解析</title>
+    <title>全球远程工作机会探索中心 | Super WALL-E</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- FontAwesome including Brands for X icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-            background-color: #fdfbf7; /* Warm neutral background */
+            background-color: #fdfbf7;
             color: #334155;
         }
         .chart-container {
@@ -58,12 +56,75 @@
             display: inline-block;
             margin-right: 6px;
         }
+        /* Custom list style for strategy steps */
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        .step-list li {
+            position: relative;
+            padding-left: 36px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #475569;
+        }
+        .step-list li::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 24px;
+            height: 24px;
+            background-color: #e0f2fe; /* light blue */
+            color: #0284c7; /* blue-600 */
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .step-list li strong {
+            color: #1e293b;
+            display: block;
+            margin-bottom: 2px;
+        }
+        /* Custom Hover for Brand Link */
+        .brand-link:hover {
+            color: #38bdf8; /* sky-400 */
+        }
     </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col">
 
-    <!-- Navbar -->
-    <nav class="bg-white shadow-sm border-b border-stone-200">
+    <!-- 1. BRAND HEADER (NEW) -->
+    <div class="bg-slate-900 text-white border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
+            <!-- Left: Logo & Name -->
+            <div class="flex items-center gap-3">
+                <div class="h-9 w-9 rounded-full overflow-hidden border-2 border-slate-700 bg-slate-800">
+                    <!-- Using the uploaded image file name -->
+                    <img src="Gemini_Generated_Image_yemgrtyemgrtyemg.jpg" alt="Super WALL-E Logo" class="h-full w-full object-cover">
+                </div>
+                <span class="font-bold text-lg tracking-wide text-slate-100">
+                    超级瓦力 <span class="text-slate-500 mx-1">|</span> Super WALL-E
+                </span>
+            </div>
+
+            <!-- Right: X Account Link -->
+            <a href="https://x.com/SuperWaLLEAI" target="_blank" rel="noopener noreferrer" class="brand-link group flex items-center gap-2 text-sm font-medium text-slate-300 transition-colors duration-200">
+                <span class="hidden sm:inline group-hover:underline decoration-slate-500 underline-offset-4">关注我</span>
+                <div class="bg-slate-800 hover:bg-slate-700 p-2 rounded-lg transition">
+                    <i class="fa-brands fa-x-twitter text-lg"></i>
+                    <span class="ml-1">@SuperWaLLEAI</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- 2. App Navbar -->
+    <nav class="bg-white shadow-sm border-b border-stone-200 sticky top-0 z-30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
@@ -71,7 +132,7 @@
                     <h1 class="text-xl font-bold text-slate-800">全球远程工作探索中心</h1>
                 </div>
                 <div class="flex items-center text-sm text-slate-500">
-                    <span class="hidden md:inline">基于提供的13个平台深度研究报告</span>
+                    <span class="hidden md:inline">基于 13 个平台的深度研究报告</span>
                 </div>
             </div>
         </div>
@@ -82,10 +143,10 @@
 
         <!-- Introduction Section -->
         <section class="mb-10 text-center max-w-3xl mx-auto">
-            <h2 class="text-3xl font-bold text-slate-800 mb-4">数字化副业与远程工作机会概览</h2>
+            <h2 class="text-3xl font-bold text-slate-800 mb-4">数字化副业与远程工作申请指南</h2>
             <p class="text-lg text-slate-600 leading-relaxed">
-                本报告详细分析了13个热门的在线赚钱平台。我们深入研究了每个平台的真实性、薪资潜力以及对<strong>中国申请者</strong>的友好程度。
-                卡片列表已按照<strong>适合度从高到低</strong>排序，帮助您优先发现最佳机会。
+                本页面不仅分析了薪资与可行性，更提供了针对中国用户的<strong>保姆级申请攻略</strong>。
+                列表已默认优先展示<strong class="text-teal-600">“非常适合”</strong>和<strong class="text-amber-600">“中等适合”</strong>的机会，点击卡片即可查看详细步骤。
             </p>
         </section>
 
@@ -98,7 +159,7 @@
                         <i class="fa-solid fa-sack-dollar text-teal-500 mr-2"></i> 薪资潜力分析 (美元/小时)
                     </h3>
                     <p class="text-sm text-slate-500 mt-1">
-                        基于报告数据的最高预估时薪比较。此图表直观展示了哪些平台提供最高的回报率，通常技能要求越高的平台（如IT支持、辅导）薪资越高。
+                        基于报告数据的最高预估时薪比较。
                     </p>
                 </div>
                 <div class="chart-container">
@@ -113,7 +174,7 @@
                         <i class="fa-solid fa-layer-group text-teal-500 mr-2"></i> 工作类型分布
                     </h3>
                     <p class="text-sm text-slate-500 mt-1">
-                        了解机会的构成。这有助于您根据自己的兴趣（如写作、测试、教学或微任务）快速定位。
+                        了解机会的构成（技术、服务、教育等）。
                     </p>
                 </div>
                 <div class="chart-container">
@@ -126,8 +187,8 @@
         <section>
             <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
                 <div class="text-left">
-                    <h3 class="text-2xl font-bold text-slate-800">平台详情与研究报告</h3>
-                    <p class="text-slate-500 text-sm">默认按照“适合中国用户”的程度进行排序。</p>
+                    <h3 class="text-2xl font-bold text-slate-800">平台详情与申请攻略</h3>
+                    <p class="text-slate-500 text-sm">点击卡片查看直达链接与步骤。</p>
                 </div>
                 
                 <!-- Filters -->
@@ -140,7 +201,7 @@
             </div>
 
             <!-- Dynamic Grid -->
-            <div id="cardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div id="cardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pb-20">
                 <!-- Cards will be injected here by JS -->
             </div>
         </section>
@@ -149,9 +210,9 @@
 
     <!-- Modal for Detailed Research -->
     <div id="detailModal" class="fixed inset-0 bg-slate-900 bg-opacity-50 hidden items-center justify-center z-50 p-4 backdrop-blur-sm">
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden transform transition-all">
-            <!-- Modal Header -->
-            <div class="bg-slate-50 px-6 py-4 border-b border-stone-100 flex justify-between items-center">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl h-[90vh] flex flex-col overflow-hidden transform transition-all">
+            <!-- Modal Header (Fixed) -->
+            <div class="bg-slate-50 px-6 py-4 border-b border-stone-100 flex justify-between items-center flex-shrink-0">
                 <div class="flex items-center gap-3">
                     <div id="modalIcon" class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 text-lg">
                         <i class="fa-solid fa-briefcase"></i>
@@ -166,8 +227,8 @@
                 </button>
             </div>
 
-            <!-- Modal Body -->
-            <div class="p-6 overflow-y-auto modal-scroll space-y-6">
+            <!-- Modal Body (Scrollable) -->
+            <div class="p-6 overflow-y-auto modal-scroll flex-grow space-y-6">
                 
                 <!-- Key Stats Grid -->
                 <div class="grid grid-cols-2 gap-4">
@@ -197,96 +258,94 @@
                     </ul>
                 </div>
 
-                <!-- Application Strategy -->
-                <div>
-                    <h4 class="text-sm font-bold text-slate-800 uppercase tracking-wide mb-2 border-l-4 border-blue-500 pl-2">申请攻略</h4>
-                    <p id="modalStrategy" class="text-slate-600 text-sm leading-relaxed">--</p>
+                <!-- Application Strategy (Step by Step) -->
+                <div class="pb-2">
+                    <h4 class="text-sm font-bold text-slate-800 uppercase tracking-wide mb-3 border-l-4 border-blue-500 pl-2">申请攻略 (Step-by-Step)</h4>
+                    <!-- Dynamic Content Container -->
+                    <div id="modalStrategyContainer"></div>
                 </div>
+            </div>
 
-                <!-- Link Button -->
-                <div class="pt-2">
-                    <a id="modalLink" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full px-4 py-3 bg-teal-600 text-white font-semibold rounded-lg hover:bg-teal-700 transition shadow-md">
-                        访问官方网站 <i class="fa-solid fa-external-link-alt ml-2"></i>
-                    </a>
-                    <p class="text-xs text-center text-slate-400 mt-2">注意：访问部分国外网站可能需要特定的网络环境。</p>
-                </div>
+            <!-- Modal Footer (Fixed) -->
+            <div class="bg-white border-t border-stone-200 px-6 py-4 flex-shrink-0 z-10 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+                <a id="modalLink" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full px-4 py-3 bg-teal-600 text-white font-semibold rounded-lg hover:bg-teal-700 transition shadow-md active:scale-[0.99]">
+                    直达官方申请页面 <i class="fa-solid fa-external-link-alt ml-2"></i>
+                </a>
+                <p class="text-xs text-center text-slate-400 mt-2">提示：若页面无法打开，请检查您的网络环境。</p>
             </div>
         </div>
     </div>
 
     <script>
-        // --- Data Source (Research Results) ---
+        // --- Data Source ---
         const platforms = [
-            {
-                id: 1,
-                name: "Arise",
-                category: "客服/支持",
-                salary: "$10-20/小时",
-                salaryVal: 20, // for chart
-                desc: "提供远程客户服务机会，作为独立承包商为大品牌（如Airbnb, Carnival等）提供支持。通过Arise平台接单，工作内容包括接听电话、处理邮件和在线聊天。",
-                suitability: "Low", // High, Medium, Low
-                suitabilityText: "较低 (需特定身份)",
-                analysis: [
-                    "真实性：高度真实，老牌客服众包平台。",
-                    "硬门槛：通常只接受美国、加拿大、英国等地的居民，需要合法的税务身份（如SSN）。",
-                    "网络要求：对IP地址审查极其严格，且需要物理硬线连接网络，不接受WiFi。",
-                    "中国申请者：除非拥有海外合法身份和居住地址，否则很难直接在中国大陆申请。"
-                ],
-                strategy: "不建议中国大陆用户直接申请。适合身在海外的华人或有海外合伙人开设公司代理接单的情况。需完成长时间无薪培训。",
-                link: "https://www.arise.com"
-            },
-            {
-                id: 2,
-                name: "Gaggle",
-                category: "内容审核",
-                salary: "$20-25/小时",
-                salaryVal: 25,
-                desc: "利用AI和人工审核来监控K-12学生在学校提供的设备和账户上的活动，以防止欺凌、自杀和暴力。工作内容是阅读和分析学生的邮件、聊天记录。",
-                suitability: "Low",
-                suitabilityText: "较低 (严格背景调查)",
-                analysis: [
-                    "真实性：真实，专注于校园安全领域。",
-                    "门槛：由于涉及未成年人安全，背景调查极其严格，通常只限美国居民。",
-                    "心理压力：内容可能包含负面情绪，需有心理准备。"
-                ],
-                strategy: "主要面向美国本土。中国申请者很难通过身份验证和背景调查。建议寻找类似的全球化内容审核项目（如Appen）。",
-                link: "https://www.gaggle.net"
-            },
             {
                 id: 3,
                 name: "Preply",
                 category: "教育/辅导",
                 salary: "$15-40+/小时",
                 salaryVal: 40,
-                desc: "全球在线语言学习平台。只要你精通某种语言（如中文、英文），就可以申请成为导师。没有正式教师资格证也可以申请。",
+                desc: "全球在线语言学习平台。教授对外汉语（Mandarin）或您擅长的其他科目。",
                 suitability: "High",
                 suitabilityText: "非常适合",
                 analysis: [
                     "真实性：全球知名平台，流量大。",
-                    "优势：作为母语为中文的人士，教授对外汉语（Mandarin）是一个巨大的市场。",
-                    "支付：支持PayPal, Payoneer，方便中国用户提现。",
-                    "缺点：平台抽成较高（首节课100%，之后18-33%）。"
+                    "优势：中文母语者市场需求稳定。",
+                    "支付：支持PayPal, Payoneer，方便中国用户提现。"
                 ],
-                strategy: "重点包装你的中文教学简介。拍摄高质量的介绍视频是关键。起步价可以设低一点积累好评，之后涨价。非常适合中国大学生或自由职业者。",
-                link: "https://preply.com"
+                strategy: [
+                    "<strong>第一步：进入导师注册页</strong><br>点击下方按钮直接访问 'Become a tutor' 页面。",
+                    "<strong>第二步：完善个人资料</strong><br>如实填写教学经验。如果没有证书，强调你的热情和对话能力。上传一张职业且友好的头像。",
+                    "<strong>第三步：录制视频（关键）</strong><br>录制一段2分钟以内的介绍视频。前30秒至关重要！建议使用横屏录制，光线明亮，分别用中文和简单的英文介绍自己。",
+                    "<strong>第四步：设定费率</strong><br>新手建议定价在 $10-15/小时，以快速积累首批学生和5星好评。积累5-10个好评后逐步涨价。",
+                    "<strong>第五步：设置时间表</strong><br>转换时区，设置你方便授课的北京时间段。"
+                ],
+                link: "https://preply.com/en/teach" // Direct signup
             },
             {
                 id: 4,
                 name: "Clickworker",
                 category: "微任务/AI数据",
                 salary: "$10-50/小时",
-                salaryVal: 30, // Average peak
-                desc: "著名的众包平台，主要提供AI训练数据收集、拍照、录音、简单的搜索评价任务（UHRS项目）。",
+                salaryVal: 30, 
+                desc: "著名的众包平台，核心任务为UHRS（搜索评价）以及语音/图片采集。",
                 suitability: "High",
                 suitabilityText: "非常适合",
                 analysis: [
-                    "真实性：老牌德企，信誉极好。",
-                    "中国友好度：完全开放给中国用户，甚至有专门针对中文的语音采集任务。",
-                    "支付：支持PayPal和Payoneer。",
-                    "核心项目：UHRS（Universal Human Relevance System）是收入大头，需通过英语测试开启。"
+                    "信誉：老牌德企，非常靠谱。",
+                    "中国友好度：完全开放，有专门的中文项目。",
+                    "支付：支持 Payoneer 和 PayPal。"
                 ],
-                strategy: "下载Clickworker APP，很多拍照任务只能在手机做。务必认真通过UHRS的资格考试，这是高收入的关键。",
-                link: "https://www.clickworker.com"
+                strategy: [
+                    "<strong>第一步：注册并完善档案</strong><br>注册时务必在语言栏添加 'Chinese (Native)'，这决定了你能否接到中文任务。",
+                    "<strong>第二步：下载 APP</strong><br>安装 Clickworker 手机应用，很多拍照和语音采集任务（如“拍摄家里的植物”）只能在手机端完成。",
+                    "<strong>第三步：通过 UHRS 考核 (高薪关键)</strong><br>在电脑端登录后台，找到 'Assessments'。必须通过 'UHRS I' 和 'UHRS II' 英语逻辑测试。建议先在网上搜索 'UHRS assessment answers' 做足功课再考，机会有限。",
+                    "<strong>第四步：绑定支付</strong><br>尽早绑定 Payoneer 账户以便收款。"
+                ],
+                link: "https://www.clickworker.com/clickworker-job/" // Direct signup
+            },
+            {
+                id: 11,
+                name: "Appen",
+                category: "AI数据/微任务",
+                salary: "项目制",
+                salaryVal: 15,
+                desc: "全球AI数据服务巨头。提供长期的搜索评价、社交媒体评估项目。",
+                suitability: "High",
+                suitabilityText: "非常适合",
+                analysis: [
+                    "分部：Appen（澳鹏）在中国有大量业务。",
+                    "稳定性：一旦进入项目（Project），通常可以稳定工作半年以上。",
+                    "支付：Payoneer。"
+                ],
+                strategy: [
+                    "<strong>第一步：注册 Appen Connect</strong><br>访问下方按钮链接，选择 'Contractors' 进行注册。建议使用 Gmail。",
+                    "<strong>第二步：上传简历</strong><br>虽然是兼职，但最好上传一份英文简历，强调你的细心、耐心和英语阅读能力。",
+                    "<strong>第三步：申请项目 (Apply)</strong><br>登录 Dashboard，在 'Projects' 标签页搜索 'Chinese' 或 'China'。核心项目通常叫 Yukon, Arrow, Crescent 等代号。",
+                    "<strong>第四步：阅读指南并考试</strong><br>每个项目都有长达100页的 Guidelines。这必须读！考试是开卷的，请边看指南边答题。",
+                    "<strong>第五步：签署文件</strong><br>考试通过后，签署保密协议 (NDA) 即可开始接单。"
+                ],
+                link: "https://account.appen.com/register/ops" // Direct signup
             },
             {
                 id: 5,
@@ -294,84 +353,41 @@
                 category: "转录/翻译",
                 salary: "$15-25/小时",
                 salaryVal: 20,
-                desc: "将音频文件转换为文本。内容包括会议记录、访谈等。工作时间极其灵活。",
+                desc: "将音频文件转换为文本。内容包括会议记录、访谈等。",
                 suitability: "Medium",
                 suitabilityText: "中等 (语言门槛)",
                 analysis: [
-                    "语言要求：对英语听力要求极高，需听懂各种口音。",
-                    "竞争：全球竞争，单价相对一般。",
-                    "支付：支持PayPal。"
+                    "技能：需要极好的英语听力。",
+                    "支付：PayPal。"
                 ],
-                strategy: "如果你是英语专业或听力极佳，可以尝试。通过入门测试是第一步。建议配备高质量耳机和脚踏板（提高效率）。",
-                link: "https://www.transcriptionhub.com"
-            },
-            {
-                id: 6,
-                name: "Remotive",
-                category: "全职/兼职招聘",
-                salary: "有竞争力 (视职位)",
-                salaryVal: 35, // Avg estimate
-                desc: "这更像是一个远程工作招聘板（Job Board），而非直接发包平台。主要发布科技、营销、设计类的全职远程职位。",
-                suitability: "Medium",
-                suitabilityText: "中等 (高技能要求)",
-                analysis: [
-                    "性质：这是找正经全职工作的地方，不是做微任务。",
-                    "竞争：主要是欧美科技公司，对应聘者英语和专业技能要求极高。",
-                    "机会：如果你是程序员、设计师或数字营销专家，这里机会很多。"
+                strategy: [
+                    "<strong>第一步：注册转录员</strong><br>点击下方链接进入 'Register as Transcriber' 页面。",
+                    "<strong>第二步：在线评估</strong><br>系统会提供一段几分钟的音频，你需要当场将其转录为文本。注意标点符号和拼写。",
+                    "<strong>第三步：等待评级</strong><br>根据你的测试准确率，系统会给你评级（Gold/Silver/Bronze）。Gold 等级单价最高，优先派单。",
+                    "<strong>第四步：接单</strong><br>登录后台 'Marketplace' 领取任务，建议配备降噪耳机。"
                 ],
-                strategy: "准备全英文简历和作品集。搜索时关注标注'Worldwide'的职位，避开'US Only'。",
-                link: "https://remotive.com"
-            },
-            {
-                id: 7,
-                name: "TaskRabbit",
-                category: "本地服务",
-                salary: "$24-33/小时",
-                salaryVal: 28,
-                desc: "主要专注于本地体力或技能服务（如组装家具、搬家、维修）。虽然有IT支持类目，但其核心基因是LBS（基于位置的服务）。",
-                suitability: "Low",
-                suitabilityText: "不适合 (地域限制)",
-                analysis: [
-                    "地域性：TaskRabbit主要覆盖美国、英国、加拿大等特定城市。",
-                    "限制：如果你身在中国，无法提供这种基于位置的服务。",
-                    "例外：如果你身在海外留学或居住，这是一个很好的赚外快途径。"
-                ],
-                strategy: "身在国内无法操作。建议使用国内的类似平台（如猪八戒、闲鱼服务）替代。",
-                link: "https://www.taskrabbit.com"
+                link: "https://www.transcriptionhub.com/transcriber-registration"
             },
             {
                 id: 8,
                 name: "UserTesting",
                 category: "用户测试",
-                salary: "$10/测试 (约20min)",
-                salaryVal: 30, // extrapolated hourly
-                desc: "录制屏幕和语音，测试网站或APP的易用性。你需要边操作边大声说出你的想法。",
+                salary: "$10/测试 (20min)",
+                salaryVal: 30,
+                desc: "录制屏幕和语音，边操作边说出你对网站的看法。",
                 suitability: "Medium",
-                suitabilityText: "中等 (需优秀口语)",
+                suitabilityText: "中等 (需口语)",
                 analysis: [
-                    "支付：PayPal，非常准时。",
-                    "设备：需要麦克风，网络要好。",
-                    "门槛：需要通过试录（Practice Test）。客户通常偏好英语母语者，但如果你口语流利且符合特定人口统计（如'中国消费者'），也会有机会。"
+                    "门槛：需要通过 Practice Test。",
+                    "支付：PayPal，七天自动到账。"
                 ],
-                strategy: "申请时如实填写居住地。如果遇到一直没有任务（Dashboard Empty），通常是因为人口统计不匹配。保持浏览器页面开启以抢单。",
-                link: "https://www.usertesting.com"
-            },
-            {
-                id: 9,
-                name: "TextBroker",
-                category: "写作/文案",
-                salary: "$20-30/小时",
-                salaryVal: 25,
-                desc: "内容写作平台，主要提供SEO文章、博客等。",
-                suitability: "Low",
-                suitabilityText: "较低 (严格身份)",
-                analysis: [
-                    "身份限制：主要接受美国、英国、加拿大、澳大利亚、新西兰居民。注册时通常需要上传证件验证。",
-                    "语言：要求母语级英语写作。",
-                    "中国申请者：直接注册很难通过。"
+                strategy: [
+                    "<strong>第一步：邮箱注册</strong><br>输入邮箱，点击 'Get Paid to Test'。",
+                    "<strong>第二步：准备设备</strong><br>找一个绝对安静的房间，准备好外接麦克风（音质很重要）。",
+                    "<strong>第三步：完成试录 (Practice Test)</strong><br>下载官方录屏软件。按照提示打开一个示例网站。关键点：**不停地说话 (Think Aloud)**。不要只看网页，要把脑子里的想法大声说出来，比如“我在找登录按钮，但我没看到，我觉得这个颜色太淡了”。",
+                    "<strong>第四步：等待审核</strong><br>人工审核通过后，完善个人资料（Profile），如实填写居住地和所用设备。"
                 ],
-                strategy: "对于中国写手，建议尝试Upwork或Fiverr进行自由写作，或者投稿给国内的英文媒体，TextBroker门槛太高。",
-                link: "https://www.textbroker.com"
+                link: "https://www.usertesting.com/get-paid-to-test"
             },
             {
                 id: 10,
@@ -383,28 +399,16 @@
                 suitability: "Medium",
                 suitabilityText: "中等",
                 analysis: [
-                    "竞争：比UserTesting稍小，可能更容易通过审核。",
+                    "竞争：相对较小。",
                     "支付：PayPal。"
                 ],
-                strategy: "作为UserTesting的备选。建议同时注册多个测试平台（还有Userlytics, IntelliZoom）以最大化接单量。",
-                link: "https://www.playbookux.com"
-            },
-            {
-                id: 11,
-                name: "Appen",
-                category: "AI数据/微任务",
-                salary: "项目制",
-                salaryVal: 15, // Conservative avg
-                desc: "全球AI数据服务巨头。提供搜索评价、社交媒体评估、语音采集等长期项目。",
-                suitability: "High",
-                suitabilityText: "非常适合",
-                analysis: [
-                    "中国分部：Appen非常重视中国市场，有大量中文项目（澳鹏中国）。",
-                    "稳定性：通过资格考试后，可以进入长期项目（每周10-20小时），比零散的微任务稳定。",
-                    "支付：Payoneer。"
+                strategy: [
+                    "<strong>第一步：注册 Tester</strong><br>直接点击下方链接注册。",
+                    "<strong>第二步：绑定社交账号</strong><br>为了验证真人身份，通常要求绑定 LinkedIn 或 Facebook。",
+                    "<strong>第三步：完成非付费试题</strong><br>系统会给一个简短的任务，类似于UserTesting，需要边操作边说话。确保英语口语清晰。",
+                    "<strong>第四步：多平台策略</strong><br>建议作为 UserTesting 的补充，同时开启两个平台的通知。"
                 ],
-                strategy: "去Appen Connect注册。务必诚实填写语言能力。中文项目的竞争也很激烈，主要看考试通过率。这是最靠谱的长期兼职之一。",
-                link: "https://connect.appen.com"
+                link: "https://www.playbookux.com/tester"
             },
             {
                 id: 12,
@@ -416,77 +420,159 @@
                 suitability: "Medium",
                 suitabilityText: "中等 (受众特定)",
                 analysis: [
-                    "高薪：这是列表中单价最高的，因为是深度访谈。",
-                    "筛选：极其严格。他们找的是'特定的人'（如：使用Salesforce的牙医）。",
-                    "机会：有时会有针对亚太区或中国市场的调研，这时中国身份反而是优势。"
+                    "筛选：极其严格，寻找特定画像。",
+                    "机会：中国用户也有机会被选中参与针对亚太市场的调研。"
                 ],
-                strategy: "完善LinkedIn资料，因为他们常会核实职业身份。如实填写资料，等待匹配。",
-                link: "https://www.userinterviews.com"
+                strategy: [
+                    "<strong>第一步：建立档案 (Profile)</strong><br>注册时，建议直接使用 LinkedIn 链接登录，这能极大增加你的可信度。",
+                    "<strong>第二步：精准贴标签</strong><br>详细填写你的职业技能（如 Python, Photoshop）和生活状态（如 '家有宠物'）。标签越细，匹配越准。",
+                    "<strong>第三步：填写筛选问卷 (Screener)</strong><br>收到邮件邀请后，要立刻去填筛选问卷。问卷中会有陷阱题验证真实性，请务必诚实。",
+                    "<strong>第四步：预约时间</strong><br>如果通过筛选，选择一个网络稳定的时段进行 Zoom 面试。"
+                ],
+                link: "https://www.userinterviews.com/participants"
+            },
+            {
+                id: 6,
+                name: "Remotive",
+                category: "全职/兼职招聘",
+                salary: "有竞争力",
+                salaryVal: 35,
+                desc: "远程工作招聘板，主要发布科技、营销类职位。",
+                suitability: "Medium",
+                suitabilityText: "中等 (高技能)",
+                analysis: [
+                    "性质：正经找工作，非微任务。",
+                    "竞争：全球化竞争。"
+                ],
+                strategy: [
+                    "<strong>第一步：筛选职位</strong><br>在 Jobs 页面，务必勾选 'Worldwide' 或 'APAC' (亚太区) 标签，过滤掉只招美国人的职位。",
+                    "<strong>第二步：针对性简历</strong><br>不要海投。针对你申请的职位（如前端开发），修改你的英文简历关键词。",
+                    "<strong>第三步：准备作品集</strong><br>如果是设计或开发岗，整理好 GitHub 或 Dribbble 链接。",
+                    "<strong>第四步：直接申请</strong><br>点击 Apply 会跳转到该公司的 ATS 系统或邮箱，按要求发送邮件。"
+                ],
+                link: "https://remotive.com/remote-jobs"
             },
             {
                 id: 13,
                 name: "Airpost",
                 category: "AI工具/营销",
                 salary: "变现不固定",
-                salaryVal: 20, // Speculative
-                desc: "利用AI生成社交媒体内容和广告。这更像是一个工具或SaaS模式，而非直接发工资的雇主。",
+                salaryVal: 20,
+                desc: "利用AI生成内容。需配合自由职业平台变现。",
                 suitability: "Medium",
                 suitabilityText: "中等 (需懂运营)",
                 analysis: [
-                    "性质：它是一个工具，你需要利用它为客户制作广告赚钱，或者推广自己的产品。",
-                    "门槛：需要懂得数字营销和寻找客户（在Fiverr上卖服务）。"
+                    "性质：这是一个工具，不是雇主。",
                 ],
-                strategy: "不要把它当成打工平台。把它当成一个'效率工具'，去Upwork接'社交媒体管理'的单子，用Airpost提高效率赚差价。",
-                link: "https://www.airpost.io" // Assumption based on common name, verify carefully
+                strategy: [
+                    "<strong>第一步：熟悉工具</strong><br>注册 Airpost 或类似 AI 营销工具，学习如何一键生成 Post。",
+                    "<strong>第二步：寻找客户</strong><br>前往 Fiverr 或 Upwork，发布服务 Gig：“I will manage your social media content using AI”。",
+                    "<strong>第三步：接单交付</strong><br>接到客户需求后，利用 Airpost 快速生成文案和图片，人工润色后交付。",
+                    "<strong>第四步：建立长期合作</strong><br>以低价吸引首批客户，展示 AI 的高效率，转化为长期包月服务。"
+                ],
+                link: "https://www.airpost.io" 
+            },
+            // --- Low Suitability Items (Simplified Strategy) ---
+            {
+                id: 1,
+                name: "Arise",
+                category: "客服/支持",
+                salary: "$10-20/小时",
+                salaryVal: 20, 
+                desc: "远程客户服务，需特定身份。",
+                suitability: "Low", 
+                suitabilityText: "较低 (需特定身份)",
+                analysis: ["硬门槛：需美国/英国等税务身份。", "网络：需硬线连接。"],
+                strategy: [
+                    "<strong>提示：</strong>不建议中国大陆用户直接申请。",
+                    "如果您身在海外且有合法工签，可尝试注册。需自行承担设备费和背景调查费用。"
+                ],
+                link: "https://www.arise.com"
+            },
+            {
+                id: 2,
+                name: "Gaggle",
+                category: "内容审核",
+                salary: "$20-25/小时",
+                salaryVal: 25,
+                desc: "学生安全内容审核。",
+                suitability: "Low",
+                suitabilityText: "较低 (严格背调)",
+                analysis: ["门槛：涉及未成年人，背调极严。"],
+                strategy: [
+                    "<strong>提示：</strong>主要面向美国本土居民。",
+                    "建议改申请 Appen 或 Lionbridge 的内容审核项目。"
+                ],
+                link: "https://www.gaggle.net"
+            },
+            {
+                id: 7,
+                name: "TaskRabbit",
+                category: "本地服务",
+                salary: "$24-33/小时",
+                salaryVal: 28,
+                desc: "本地体力/技能服务。",
+                suitability: "Low",
+                suitabilityText: "不适合 (地域限制)",
+                analysis: ["限制：基于地理位置的服务。"],
+                strategy: [
+                    "<strong>提示：</strong>无法在中国国内操作。",
+                    "仅适合身在开通城市（如伦敦、纽约）的留学生使用。"
+                ],
+                link: "https://www.taskrabbit.com"
+            },
+            {
+                id: 9,
+                name: "TextBroker",
+                category: "写作/文案",
+                salary: "$20-30/小时",
+                salaryVal: 25,
+                desc: "英语内容写作平台。",
+                suitability: "Low",
+                suitabilityText: "较低 (身份限制)",
+                analysis: ["身份：需验证美/英/加/澳居民身份。"],
+                strategy: [
+                    "<strong>提示：</strong>直接注册极难通过。",
+                    "建议中国写手使用 Upwork 或 Fiverr 接单。"
+                ],
+                link: "https://www.textbroker.com/authors"
             }
         ];
 
         // --- Visualization Logic ---
         function initCharts() {
-            // Data Prep
             const labels = platforms.map(p => p.name);
             const salaryData = platforms.map(p => p.salaryVal);
-            
             const categoryCounts = {};
             platforms.forEach(p => {
                 categoryCounts[p.category] = (categoryCounts[p.category] || 0) + 1;
             });
 
-            // 1. Salary Chart
+            // Salary Chart
             const ctxSalary = document.getElementById('salaryChart').getContext('2d');
             new Chart(ctxSalary, {
                 type: 'bar',
                 data: {
                     labels: labels,
                     datasets: [{
-                        label: '预估最高时薪 (美元)',
+                        label: '预估最高时薪 ($)',
                         data: salaryData,
-                        backgroundColor: '#0d9488', // teal-600
-                        borderRadius: 4,
-                        hoverBackgroundColor: '#0f766e'
+                        backgroundColor: '#0d9488',
+                        borderRadius: 4
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return `预估: $${context.raw}/小时`;
-                                }
-                            }
-                        }
-                    },
+                    plugins: { legend: { display: false } },
                     scales: {
                         y: { beginAtZero: true, grid: { color: '#f5f5f4' } },
-                        x: { grid: { display: false }, ticks: { font: { size: 10 } } }
+                        x: { display: false } // Hide labels to keep it clean
                     }
                 }
             });
 
-            // 2. Category Chart
+            // Category Chart
             const ctxCategory = document.getElementById('categoryChart').getContext('2d');
             new Chart(ctxCategory, {
                 type: 'doughnut',
@@ -501,29 +587,19 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: {
-                        legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } }
-                    },
+                    plugins: { legend: { position: 'right', labels: { boxWidth: 12 } } },
                     layout: { padding: 10 }
                 }
             });
         }
 
         // --- Interaction Logic ---
-
         const grid = document.getElementById('cardsGrid');
-
-        // Priority Map for Sorting
-        const suitabilityPriority = {
-            'High': 1,
-            'Medium': 2,
-            'Low': 3
-        };
+        const suitabilityPriority = { 'High': 1, 'Medium': 2, 'Low': 3 };
 
         function renderCards(filterType) {
             grid.innerHTML = '';
             
-            // 1. Filter
             let filtered = platforms.filter(p => {
                 if (filterType === 'all') return true;
                 if (filterType === 'high_suitability') return p.suitability === 'High';
@@ -532,16 +608,11 @@
                 return true;
             });
 
-            // 2. Sort (High -> Medium -> Low)
-            filtered.sort((a, b) => {
-                return suitabilityPriority[a.suitability] - suitabilityPriority[b.suitability];
-            });
+            // Sort: High -> Medium -> Low
+            filtered.sort((a, b) => suitabilityPriority[a.suitability] - suitabilityPriority[b.suitability]);
 
-            // 3. Render
             filtered.forEach(item => {
-                // Determine badge color
-                let badgeClass = 'bg-stone-100 text-stone-600';
-                let dotColor = '#a8a29e';
+                let badgeClass, dotColor;
                 if(item.suitability === 'High') {
                     badgeClass = 'bg-teal-50 text-teal-700 border border-teal-100';
                     dotColor = '#0d9488';
@@ -571,14 +642,13 @@
                     </div>
                     <div class="pt-4 border-t border-stone-100 flex justify-between items-center">
                         <span class="text-teal-700 font-bold text-sm">${item.salary}</span>
-                        <span class="text-xs text-slate-400 group-hover:translate-x-1 transition"><i class="fa-solid fa-arrow-right"></i> 查看详情</span>
+                        <span class="text-xs text-slate-400 group-hover:translate-x-1 transition"><i class="fa-solid fa-arrow-right"></i> 查看攻略</span>
                     </div>
                 `;
                 grid.appendChild(card);
             });
         }
 
-        // Button State Logic
         function filterData(type) {
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.remove('bg-teal-600', 'text-white');
@@ -598,23 +668,44 @@
             document.getElementById('modalCategory').innerText = item.category;
             document.getElementById('modalSalary').innerText = item.salary;
             document.getElementById('modalDesc').innerText = item.desc;
-            document.getElementById('modalStrategy').innerText = item.strategy;
             
-            // Suitability Color Logic in Modal
+            // Suitability Styling
             const suitEl = document.getElementById('modalSuitability');
             suitEl.innerText = item.suitabilityText;
             if (item.suitability === 'High') suitEl.className = 'flex items-center font-bold text-teal-600';
             else if (item.suitability === 'Low') suitEl.className = 'flex items-center font-bold text-red-500';
             else suitEl.className = 'flex items-center font-bold text-amber-600';
 
-            // List Injection
+            // Analysis List
             const analysisList = document.getElementById('modalAnalysis');
             analysisList.innerHTML = '';
             item.analysis.forEach(point => {
                 const li = document.createElement('li');
-                li.innerHTML = point.replace(/：/, '：<strong>').replace(/(。|$)/, '</strong>$1'); // Bold the key part
+                li.innerHTML = point.replace(/：/, '：<strong>').replace(/(。|$)/, '</strong>$1');
                 analysisList.appendChild(li);
             });
+
+            // Strategy Rendering (Step by Step Logic)
+            const strategyContainer = document.getElementById('modalStrategyContainer');
+            strategyContainer.innerHTML = ''; // Clear previous
+
+            if (Array.isArray(item.strategy)) {
+                // Render as ordered list
+                const ol = document.createElement('ol');
+                ol.className = 'step-list';
+                item.strategy.forEach(step => {
+                    const li = document.createElement('li');
+                    li.innerHTML = step;
+                    ol.appendChild(li);
+                });
+                strategyContainer.appendChild(ol);
+            } else {
+                // Fallback for simple string
+                const p = document.createElement('p');
+                p.className = 'text-slate-600 text-sm leading-relaxed';
+                p.innerText = item.strategy;
+                strategyContainer.appendChild(p);
+            }
 
             document.getElementById('modalLink').href = item.link;
 
@@ -627,12 +718,10 @@
             modal.classList.remove('flex');
         }
 
-        // Close on outside click
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
         });
 
-        // Initialize
         window.addEventListener('load', () => {
             initCharts();
             renderCards('all');
