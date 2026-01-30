@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 全球远程工作/副业机会探索中心</title>
+    <title>超级瓦力 全球远程工作/副业机会探索中心</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -72,6 +72,11 @@
         canvas {
             font-family: 'Inter', sans-serif;
         }
+        
+        /* 攻略内容样式 */
+        .strategy-content ul { list-style-type: disc; padding-left: 1.25rem; }
+        .strategy-content ol { list-style-type: decimal; padding-left: 1.25rem; }
+        .strategy-content li { margin-bottom: 0.5rem; }
     </style>
 </head>
 <body class="text-slate-700 antialiased selection:bg-emerald-100 selection:text-emerald-700 pb-20">
@@ -85,7 +90,8 @@
                         <i class="fa-solid fa-paper-plane text-lg"></i>
                     </div>
                     <div>
-                        <h1 class="text-xl font-bold tracking-tight text-slate-800">Global <span class="text-emerald-500">Explorer</span> 2026</h1>
+                        <!-- Updated Title -->
+                        <h1 class="text-xl font-bold tracking-tight text-slate-800">赚点<span class="text-emerald-500">外快</span></h1>
                         <p class="text-[10px] text-slate-400 font-medium tracking-wider uppercase">Remote Work Discovery</p>
                     </div>
                 </div>
@@ -93,8 +99,9 @@
                     <span class="text-sm font-medium text-slate-500">
                         <i class="fa-solid fa-signal text-emerald-500 mr-1"></i> 数据更新于: 2026.01
                     </span>
-                    <a href="#" class="px-4 py-2 bg-slate-800 text-white text-sm font-bold rounded-lg hover:bg-slate-700 transition shadow-lg shadow-slate-200">
-                        订阅周报
+                    <!-- Updated Follow Button -->
+                    <a href="https://x.com/SuperWaLLEAI" target="_blank" class="px-4 py-2 bg-slate-900 text-white text-sm font-bold rounded-lg hover:bg-slate-700 transition shadow-lg shadow-slate-200 flex items-center gap-2">
+                        <i class="fa-brands fa-x-twitter text-lg"></i> 关注我
                     </a>
                 </div>
             </div>
@@ -116,7 +123,7 @@
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-cyan-500">高薪远程机会</span>
                 </h2>
                 <p class="text-slate-500 mb-8 leading-relaxed">
-                    我们要打破信息差。这里汇集了全球 15 个最适合中国开发者的远程平台，从 AI 训练到学术调研，每一项都经过真实性验证。
+                    我们要打破信息差。这里汇集了全球 14 个最适合中国开发者的远程平台，从 AI 训练到学术调研，每一项都经过真实性验证。
                 </p>
                 <div class="flex gap-4">
                     <div class="flex flex-col">
@@ -130,7 +137,7 @@
                     </div>
                     <div class="w-px h-10 bg-slate-200"></div>
                     <div class="flex flex-col">
-                        <span class="text-2xl font-bold text-slate-800">15</span>
+                        <span class="text-2xl font-bold text-slate-800">14</span>
                         <span class="text-xs text-slate-400">精选平台</span>
                     </div>
                 </div>
@@ -195,7 +202,7 @@
         <!-- Modal Content -->
         <div class="relative bg-white w-full max-w-2xl mx-4 rounded-3xl shadow-2xl overflow-hidden modal-animate flex flex-col max-h-[85vh]">
             <!-- Header -->
-            <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
+            <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center flex-shrink-0">
                 <div class="flex items-center gap-4">
                     <div id="modalIcon" class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl shadow-sm">
                         <!-- Icon injected via JS -->
@@ -217,27 +224,29 @@
             <div class="p-8 overflow-y-auto custom-scrollbar">
                 <!-- Description -->
                 <div class="mb-8">
-                    <h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3">平台简介</h4>
+                    <h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3">平台简介 / Description</h4>
                     <p id="modalDesc" class="text-slate-600 leading-relaxed text-lg">--</p>
                 </div>
 
                 <!-- Strategy Box -->
                 <div class="bg-gradient-to-br from-emerald-50 to-cyan-50 rounded-2xl p-6 border border-emerald-100/50 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-white/40 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
+                    <!-- Decor -->
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-white/40 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
                     
-                    <h4 class="text-lg font-bold text-slate-800 mb-4 flex items-center relative z-10">
-                        <i class="fa-solid fa-book-open text-emerald-500 mr-2"></i> 保姆级攻略
+                    <h4 class="text-lg font-bold text-slate-800 mb-6 flex items-center relative z-10 border-b border-emerald-100 pb-2">
+                        <i class="fa-solid fa-book-open text-emerald-500 mr-2"></i> 保姆级攻略 / Step-by-Step Guide
                     </h4>
-                    <div id="modalStrategy" class="text-slate-600 text-sm leading-7 relative z-10">
+                    
+                    <div id="modalStrategy" class="text-slate-600 text-sm leading-7 relative z-10 strategy-content space-y-6">
                         <!-- HTML Content Injected Here -->
                     </div>
                 </div>
             </div>
 
             <!-- Footer -->
-            <div class="p-6 border-t border-slate-100 bg-white flex justify-end">
+            <div class="p-6 border-t border-slate-100 bg-white flex justify-end flex-shrink-0">
                 <a id="modalLink" href="#" target="_blank" class="w-full sm:w-auto text-center px-8 py-3 bg-slate-900 text-white font-bold rounded-xl hover:bg-emerald-600 hover:shadow-lg hover:shadow-emerald-200 transition-all duration-300 flex items-center justify-center gap-2">
-                    <span>前往官网申请</span>
+                    <span>前往官网申请 / Apply Now</span>
                     <i class="fa-solid fa-arrow-right-long"></i>
                 </a>
             </div>
@@ -245,7 +254,10 @@
     </div>
 
     <script>
-        // --- 1. Core Data (Strictly adherence to prompt) ---
+        // --- 1. Core Data (Updated) ---
+        // 删除 "自由职客"
+        // 更新了 URL: 云队友, Welocalize, Appen
+        // 细化了 Strategy, 增加了 "避坑指南"
         const platforms = [
           {
             name: "DataAnnotation",
@@ -253,8 +265,36 @@
             salary: "$20-40+/小时",
             tags: ["高薪", "美元"],
             suitability: "High",
-            desc: "目前最火的 AI 训练平台。通过与 AI 对话或编写代码来评估其质量。核心是英语写作逻辑。",
-            strategy: "<h4 class='font-bold text-emerald-600 mb-2'>注册流程：</h4><p>1. 官网注册后，必须立即完成一个 Starter Assessment。<br>2. 这是一个长达 1 小时的核心测试，包含创意写作和逻辑纠错。<br>3. <strong>提示：</strong>不要使用 AI 辅助答题，系统会检测。</p><h4 class='font-bold text-sky-600 mt-4 mb-2'>如何赚钱：</h4><p>通过测试后，Dashboard 会出现项目。按小时计费，任务通常是 '与机器人对话' 或 '修正代码'。PayPal 结算。</p>",
+            desc: "目前公认最高薪的 AI 训练平台。无需打卡，核心任务是通过与 chatbot 对话、修改代码或进行创意写作来训练大模型。",
+            strategy: `
+                <div class="space-y-6">
+                    <div>
+                        <h5 class="font-bold text-emerald-700 flex items-center mb-2"><i class="fa-solid fa-user-plus mr-2"></i> 注册流程 (Registration)</h5>
+                        <ul class="list-decimal pl-5 space-y-2 text-slate-600">
+                            <li><strong>准备环境：</strong> 注册时必须使用美国/英国/加拿大/澳大利亚/新西兰等英语国家的洁净 IP。不要使用免费或公共节点。</li>
+                            <li><strong>填写信息：</strong> 如实填写你的编程能力 (Python/JS) 或写作能力。PayPal 邮箱最好与注册邮箱一致。</li>
+                            <li><strong>核心测试 (Starter Assessment)：</strong> 注册后会立刻要求进行一个约 45-60 分钟的入门测试。包含创意写作（如“写一个关于章鱼的故事”）和逻辑纠错。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sky-700 flex items-center mb-2"><i class="fa-solid fa-sack-dollar mr-2"></i> 实操变现 (How to Earn)</h5>
+                        <p class="mb-2"><strong>通过测试后：</strong> Dashboard 会出现项目卡片 (Projects)。</p>
+                        <ul class="list-disc pl-5 text-slate-600">
+                            <li><strong>Coding Projects ($40/hr)：</strong> 修复 AI 生成的代码 bug，或编写测试用例。</li>
+                            <li><strong>Core Projects ($20/hr)：</strong> 评估 AI 回答的准确性、安全性。</li>
+                            <li><strong>记录时间：</strong> 自行要在页面底部 Log Work time，务必诚实。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-rose-50 p-4 rounded-xl border border-rose-100">
+                        <h5 class="font-bold text-rose-600 flex items-center mb-2 text-xs uppercase tracking-wider"><i class="fa-solid fa-triangle-exclamation mr-2"></i> 避坑指南 (Avoid Pitfalls)</h5>
+                        <ul class="list-disc pl-5 space-y-1 text-slate-500 text-xs">
+                            <li><strong>No AI Usage：</strong> 绝对不要用 ChatGPT 来回答它的测试题！系统有极强的 AI 检测机制，秒封。</li>
+                            <li><strong>IP Consistency：</strong> 注册后，尽量保持在同一国家/地区 IP 下登录，频繁跳动 IP (IP Hopping) 会触发风控。</li>
+                            <li><strong>Ghosting：</strong> 如果测试没过，官方不会发拒信，只是 Dashboard 会一直空白。</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
             link: "https://www.dataannotation.tech/"
           },
           {
@@ -263,8 +303,34 @@
             salary: "$10-15/小时",
             tags: ["极稳", "美元"],
             suitability: "High",
-            desc: "牛津/剑桥等高校发布的学术问卷。极其诚信，绝不砍单，通过率极高。",
-            strategy: "<h4 class='font-bold text-emerald-600 mb-2'>注册流程：</h4><p>1. 注册时需排队 (Waitlist)，建议尽早占坑。<br>2. <strong>关键：</strong>必须完成身份验证 (ID Verification)，需上传护照或驾照。</p><h4 class='font-bold text-sky-600 mt-4 mb-2'>如何赚钱：</h4><p>填写 'About You' 越详细越好。收到问卷邮件后要立刻点进去，名额有限。满 5 英镑即可提现 PayPal。</p>",
+            desc: "源自牛津大学，专门服务于学术研究。问卷单价高，且因其“学术”性质，绝不会像商业问卷网那样做了一半踢人。",
+            strategy: `
+                <div class="space-y-6">
+                    <div>
+                        <h5 class="font-bold text-emerald-700 flex items-center mb-2"><i class="fa-solid fa-user-plus mr-2"></i> 注册流程 (Registration)</h5>
+                        <ul class="list-decimal pl-5 space-y-2 text-slate-600">
+                            <li><strong>加入等待名单 (Join Waitlist)：</strong> 目前注册火爆，大概率需要排队。如果有 .edu 邮箱（海外高校）通过率会极高。</li>
+                            <li><strong>身份验证 (ID Verification)：</strong> 轮到你时，必须上传护照或驾照，并进行人脸识别（第三方 Onfido 系统，安全）。</li>
+                            <li><strong>完善资料 (About You)：</strong> 进入后，先把所有个人画像问题填完，这决定了你能收到多少问卷。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sky-700 flex items-center mb-2"><i class="fa-solid fa-sack-dollar mr-2"></i> 实操变现 (How to Earn)</h5>
+                        <ul class="list-disc pl-5 text-slate-600">
+                            <li><strong>安装插件：</strong> 强烈建议安装 Chrome 插件 "Prolific Assistant"，有新问卷时会弹窗提醒。</li>
+                            <li><strong>抢单：</strong> 看到剩余名额 (Places) 还有时，立刻点击 "Reserve"，先占坑再慢慢做。</li>
+                            <li><strong>提现：</strong> 满 5 英镑即可提现到 PayPal，几乎秒到账。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-rose-50 p-4 rounded-xl border border-rose-100">
+                        <h5 class="font-bold text-rose-600 flex items-center mb-2 text-xs uppercase tracking-wider"><i class="fa-solid fa-triangle-exclamation mr-2"></i> 避坑指南 (Avoid Pitfalls)</h5>
+                        <ul class="list-disc pl-5 space-y-1 text-slate-500 text-xs">
+                            <li><strong>Attention Check：</strong> 题目里常藏有“请选择'有些同意'”这类陷阱题，选错直接拒付 (Rejection)。</li>
+                            <li><strong>VPN/Proxy：</strong> 登录时严禁使用 VPN，否则会显示 PEC-SUB-0002 错误代码。请使用家庭宽带 IP。</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
             link: "https://www.prolific.com/"
           },
           {
@@ -273,8 +339,34 @@
             salary: "$15-40/小时",
             tags: ["母语优势", "美元"],
             suitability: "High",
-            desc: "全球语言教学平台。作为中国人，教老外中文是最大的优势。无需教师证。",
-            strategy: "<h4 class='font-bold text-emerald-600 mb-2'>注册流程：</h4><p>1. 申请成为 Tutor，无需认证费。<br>2. <strong>关键：</strong>录制一段 2 分钟的介绍视频。前 15 秒必须用流利的英语打招呼，展现亲和力。</p><h4 class='font-bold text-sky-600 mt-4 mb-2'>如何赚钱：</h4><p>初期设置低价 ($10-15) 积累好评，拥有 5 个好评后逐步涨价。主要收入来自长期订阅的学生。</p>",
+            desc: "全球知名的在线语言学习平台。对于中国用户，最大的资产就是你的母语——普通话 (Mandarin)。",
+            strategy: `
+                <div class="space-y-6">
+                    <div>
+                        <h5 class="font-bold text-emerald-700 flex items-center mb-2"><i class="fa-solid fa-user-plus mr-2"></i> 注册流程 (Registration)</h5>
+                        <ul class="list-decimal pl-5 space-y-2 text-slate-600">
+                            <li><strong>申请导师 (Become a tutor)：</strong> 点击官网底部的 "Become a tutor"。无需教师资格证，但有证书会加分。</li>
+                            <li><strong>个人资料 (Profile)：</strong> 头像要职业且微笑。自我介绍要分段写，强调你能教什么（如 HSK 考试、商务中文、儿童中文）。</li>
+                            <li><strong>视频录制 (Video)：</strong> 这是最关键一步！录制一段 2 分钟横屏视频。前 30 秒分别用流利的英语和中文打招呼，展示亲和力。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sky-700 flex items-center mb-2"><i class="fa-solid fa-sack-dollar mr-2"></i> 实操变现 (How to Earn)</h5>
+                        <ul class="list-disc pl-5 text-slate-600">
+                            <li><strong>冷启动策略：</strong> 新手建议将费率设低 ($10-15)，先通过低价吸引前 5 个学生，拿到 5 星好评。</li>
+                            <li><strong>逐步涨价：</strong> 积累 100 课时后，将新学生的价格涨到 $20+。</li>
+                            <li><strong>试听课：</strong> 第一节课通常是试听，要准备好 PDF 教材或 PPT 展示专业度。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-rose-50 p-4 rounded-xl border border-rose-100">
+                        <h5 class="font-bold text-rose-600 flex items-center mb-2 text-xs uppercase tracking-wider"><i class="fa-solid fa-triangle-exclamation mr-2"></i> 避坑指南 (Avoid Pitfalls)</h5>
+                        <ul class="list-disc pl-5 space-y-1 text-slate-500 text-xs">
+                            <li><strong>Platform Fee：</strong> 平台抽成较高（初期 33%，随课时增加降至 18%），定价时要考虑进去。</li>
+                            <li><strong>Off-platform：</strong> 严禁私下加微信交易，被检测到会永久封号。</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
             link: "https://preply.com/en/teach"
           },
           {
@@ -283,9 +375,35 @@
             salary: "$15-25/小时",
             tags: ["长期", "美元"],
             suitability: "High",
-            desc: "为大型搜索引擎优化结果。专门招聘 'Simplified Chinese' 评估员。",
-            strategy: "<h4 class='font-bold text-emerald-600 mb-2'>注册流程：</h4><p>1. 在 Careers 页面搜索 'Ads Rating' 或 'Search Quality'。<br>2. 需签署 NDA 并通过一个三部分的入职考试（开卷，有指南）。</p><h4 class='font-bold text-sky-600 mt-4 mb-2'>如何赚钱：</h4><p>通过考试后会获得账号。每周工作 10-20 小时，时间自由。适合作为长期稳定的副业。</p>",
-            link: "https://jobs.welocalize.com/"
+            desc: "老牌本地化服务商，长期招聘中文母语者优化搜索引擎结果。工作性质稳定，适合作为长期兼职。",
+            strategy: `
+                <div class="space-y-6">
+                    <div>
+                        <h5 class="font-bold text-emerald-700 flex items-center mb-2"><i class="fa-solid fa-user-plus mr-2"></i> 注册流程 (Registration)</h5>
+                        <ul class="list-decimal pl-5 space-y-2 text-slate-600">
+                            <li><strong>查找职位：</strong> 访问新的招聘网址 (Lever)，在 Location 搜 "China" 或 "Remote"，关键词搜 "Ads Quality Rater" 或 "Search Quality Rater"。</li>
+                            <li><strong>投递简历：</strong> 上传英文简历，务必在简历中包含 "Native Chinese Speaker" 字样。</li>
+                            <li><strong>入职考试 (Exam)：</strong> 通过简历筛选后，会收到考试邀请。包含三个部分（理论、页面质量、相关性）。这是开卷考试，会给你发 160 页的 Guide。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sky-700 flex items-center mb-2"><i class="fa-solid fa-sack-dollar mr-2"></i> 实操变现 (How to Earn)</h5>
+                        <ul class="list-disc pl-5 text-slate-600">
+                            <li><strong>RaterHub：</strong> 通过考试后，会获得 RaterHub 系统账号。登录后有任务就做。</li>
+                            <li><strong>工时要求：</strong> 通常要求每周最少工作 10 小时，最多 20-29 小时。</li>
+                            <li><strong>收款：</strong> 通过 Hyperwallet 绑定银行卡收款。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-rose-50 p-4 rounded-xl border border-rose-100">
+                        <h5 class="font-bold text-rose-600 flex items-center mb-2 text-xs uppercase tracking-wider"><i class="fa-solid fa-triangle-exclamation mr-2"></i> 避坑指南 (Avoid Pitfalls)</h5>
+                        <ul class="list-disc pl-5 space-y-1 text-slate-500 text-xs">
+                            <li><strong>Guide is Bible：</strong> 考试非常难，不要裸考！必须熟读 Guidelines，考试时善用 Ctrl+F 搜索。</li>
+                            <li><strong>IP Restriction：</strong> 必须在中国大陆 IP 下工作（针对中文项目），不要开代理。</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
+            link: "https://jobs.lever.co/welocalize"
           },
           {
             name: "电鸭 (Eleduck)",
@@ -293,8 +411,33 @@
             salary: "项目制/月薪",
             tags: ["国内首选", "人民币"],
             suitability: "High",
-            desc: "中国最早、最活跃的远程工作社区。连接国内外的远程雇主。",
-            strategy: "<h4 class='font-bold text-emerald-600 mb-2'>注册流程：</h4><p>1. 微信直接登录。<br>2. 完善个人简历，绑定 GitHub 或作品集链接。</p><h4 class='font-bold text-sky-600 mt-4 mb-2'>如何赚钱：</h4><p>不要只投简历。在社区里发帖分享你的技术栈或作品，展示个人品牌。主动联系发布 '招募贴' 的雇主。</p>",
+            desc: "中国最早、氛围最好的远程工作社区。这里不只是找工作，更是找圈子。",
+            strategy: `
+                <div class="space-y-6">
+                    <div>
+                        <h5 class="font-bold text-emerald-700 flex items-center mb-2"><i class="fa-solid fa-user-plus mr-2"></i> 注册流程 (Registration)</h5>
+                        <ul class="list-decimal pl-5 space-y-2 text-slate-600">
+                            <li><strong>登录：</strong> 直接使用微信扫码登录。</li>
+                            <li><strong>完善简历：</strong> 在“我的”板块完善在线简历。如果你是程序员，务必绑定 GitHub；如果是设计师，放上 Dribbble/Behance 链接。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sky-700 flex items-center mb-2"><i class="fa-solid fa-sack-dollar mr-2"></i> 实操变现 (How to Earn)</h5>
+                        <ul class="list-disc pl-5 text-slate-600">
+                            <li><strong>主动出击：</strong> 每天早上 10 点刷新“工作”板块。看到合适的直接联系，不要害羞。</li>
+                            <li><strong>发帖展示：</strong> 在“人才库”或“讨论区”发帖，标题格式推荐：【求职】+ 职位 + 年限 + 核心技术栈。展示你的个人项目。</li>
+                            <li><strong>只只担保：</strong> 对于大额项目，推荐走社区官方的“只只”担保交易，避免烂尾收不到钱。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-rose-50 p-4 rounded-xl border border-rose-100">
+                        <h5 class="font-bold text-rose-600 flex items-center mb-2 text-xs uppercase tracking-wider"><i class="fa-solid fa-triangle-exclamation mr-2"></i> 避坑指南 (Avoid Pitfalls)</h5>
+                        <ul class="list-disc pl-5 space-y-1 text-slate-500 text-xs">
+                            <li><strong>Scam Alert：</strong> 任何要求“先交押金”、“试岗期无薪”或“去第三方APP充值”的都是骗子。</li>
+                            <li><strong>Respect：</strong> 社区注重极客文化，沟通时保持礼貌和专业，不要做“伸手党”。</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
             link: "https://eleduck.com/"
           },
           {
@@ -303,19 +446,34 @@
             salary: "时薪/月薪",
             tags: ["国内", "稳定"],
             suitability: "High",
-            desc: "国内成熟的远程人才雇佣平台。企业像雇员工一样雇佣你。",
-            strategy: "<h4 class='font-bold text-emerald-600 mb-2'>注册流程：</h4><p>1. 注册后必须进行实名认证和技能认证。<br>2. 平台会对你进行简单的面试或背景核查。</p><h4 class='font-bold text-sky-600 mt-4 mb-2'>如何赚钱：</h4><p>你的简历会进入人才库。企业会搜索并邀请你面试。常见岗位：远程助理、客服、Java 开发、UI 设计。</p>",
-            link: "https://www.yunduiyou.com/"
-          },
-          {
-            name: "自由职客",
-            category: "IT技术",
-            salary: "¥1000+/天",
-            tags: ["国内", "高薪"],
-            suitability: "High",
-            desc: "专注于高端 IT 灵活用工。如果你是大厂出来的开发者，这里机会很多。",
-            strategy: "<h4 class='font-bold text-emerald-600 mb-2'>注册流程：</h4><p>1. 下载 App 或官网注册，上传详细简历。<br>2. 系统会根据你的关键词（如 SpringBoot, React）匹配项目。</p><h4 class='font-bold text-sky-600 mt-4 mb-2'>如何赚钱：</h4><p>主要是驻场或远程的短期项目（3-6个月）。适合处于空窗期或寻求自由职业的资深技术人员。</p>",
-            link: "https://www.freekeer.com/"
+            desc: "国内领先的远程人才雇佣平台。模式更偏向于“企业通过平台雇佣你”，流程规范。",
+            strategy: `
+                <div class="space-y-6">
+                    <div>
+                        <h5 class="font-bold text-emerald-700 flex items-center mb-2"><i class="fa-solid fa-user-plus mr-2"></i> 注册流程 (Registration)</h5>
+                        <ul class="list-decimal pl-5 space-y-2 text-slate-600">
+                            <li><strong>入驻：</strong> 访问 duiyou360.com，选择“我是人才”进行注册。</li>
+                            <li><strong>三层认证：</strong> 必须完成 实名认证 + 技能认证（上传证书/作品） + 经历认证。</li>
+                            <li><strong>平台面试：</strong> 部分高级岗位需要通过平台工作人员的视频面试，核实你的沟通能力。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sky-700 flex items-center mb-2"><i class="fa-solid fa-sack-dollar mr-2"></i> 实操变现 (How to Earn)</h5>
+                        <ul class="list-disc pl-5 text-slate-600">
+                            <li><strong>匹配机制：</strong> 你的简历会进入人才库。企业发布需求后，系统会自动匹配。你也可以在“机会”大厅查看。</li>
+                            <li><strong>面试与签约：</strong> 企业会发起面试邀请。通过后，会在平台上签署电子合同，薪资托管在平台，很有保障。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-rose-50 p-4 rounded-xl border border-rose-100">
+                        <h5 class="font-bold text-rose-600 flex items-center mb-2 text-xs uppercase tracking-wider"><i class="fa-solid fa-triangle-exclamation mr-2"></i> 避坑指南 (Avoid Pitfalls)</h5>
+                        <ul class="list-disc pl-5 space-y-1 text-slate-500 text-xs">
+                            <li><strong>Resume Truth：</strong> 严禁简历注水。平台会进行背调，一旦发现造假，永久拉黑。</li>
+                            <li><strong>Competition：</strong> 运营、助理类岗位竞争极卷，建议突出差异化技能（如“擅长 AI 工具”）。</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
+            link: "https://www.duiyou360.com/"
           },
           {
             name: "有道众包",
@@ -323,8 +481,34 @@
             salary: "按件计费",
             tags: ["国内", "简单"],
             suitability: "High",
-            desc: "网易旗下平台。任务极其简单，适合碎片时间赚零花钱。",
-            strategy: "<h4 class='font-bold text-emerald-600 mb-2'>注册流程：</h4><p>1. 使用网易账号登录，绑定支付宝。<br>2. 新手需完成简单的培训任务。</p><h4 class='font-bold text-sky-600 mt-4 mb-2'>如何赚钱：</h4><p>领取任务包，如 '图片框选'、'语音朗读'、'判断图片相关性'。不需要专业技能，多劳多得。</p>",
+            desc: "网易旗下的人工智能数据众包平台。任务简单，门槛低，适合学生党或宝妈利用碎片时间。",
+            strategy: `
+                <div class="space-y-6">
+                    <div>
+                        <h5 class="font-bold text-emerald-700 flex items-center mb-2"><i class="fa-solid fa-user-plus mr-2"></i> 注册流程 (Registration)</h5>
+                        <ul class="list-decimal pl-5 space-y-2 text-slate-600">
+                            <li><strong>登录：</strong> 使用网易邮箱或手机号直接登录官网。</li>
+                            <li><strong>绑定：</strong> 在个人中心绑定支付宝账号，实名认证，这是提现的唯一途径。</li>
+                            <li><strong>新手任务：</strong> 建议先做“练习场”的任务，熟悉规则，准确率高了才能解锁正式任务。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sky-700 flex items-center mb-2"><i class="fa-solid fa-sack-dollar mr-2"></i> 实操变现 (How to Earn)</h5>
+                        <ul class="list-disc pl-5 text-slate-600">
+                            <li><strong>领包：</strong> 在任务大厅领取任务包。常见类型：图片框选（拉框）、语音转写、文本分类、图片判断。</li>
+                            <li><strong>提交：</strong> 按照规范做完提交，等待审核。</li>
+                            <li><strong>提现：</strong> 每周四可以申请提现，门槛很低。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-rose-50 p-4 rounded-xl border border-rose-100">
+                        <h5 class="font-bold text-rose-600 flex items-center mb-2 text-xs uppercase tracking-wider"><i class="fa-solid fa-triangle-exclamation mr-2"></i> 避坑指南 (Avoid Pitfalls)</h5>
+                        <ul class="list-disc pl-5 space-y-1 text-slate-500 text-xs">
+                            <li><strong>Low Pay：</strong> 单价较低（几分钱到几毛钱），不要指望靠这个发财，只适合赚杯奶茶钱。</li>
+                            <li><strong>Accuracy：</strong> 如果为了求快而乱点，准确率掉到阈值以下，会被封禁任务权限。</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
             link: "https://zb.163.com/"
           },
           {
@@ -333,8 +517,34 @@
             salary: "$10-20/小时",
             tags: ["德企", "美元"],
             suitability: "Medium",
-            desc: "老牌众包平台。核心价值在于它是进入 UHRS (微软通用人力资源系统) 的入口。",
-            strategy: "<h4 class='font-bold text-emerald-600 mb-2'>注册流程：</h4><p>1. 注册时务必填写真实语言能力。<br>2. 在 'Assessments' 中找到 'UHRS I' 和 'UHRS II' 考试。</p><h4 class='font-bold text-sky-600 mt-4 mb-2'>如何赚钱：</h4><p>必须通过 UHRS 考试！通过后会获得一个 LiveID，登录 UHRS 系统做单，那里的任务单价才高。</p>",
+            desc: "德国的老牌众包平台。它最大的价值是作为微软 UHRS (Universal Human Relevance System) 的入口。",
+            strategy: `
+                <div class="space-y-6">
+                    <div>
+                        <h5 class="font-bold text-emerald-700 flex items-center mb-2"><i class="fa-solid fa-user-plus mr-2"></i> 注册流程 (Registration)</h5>
+                        <ul class="list-decimal pl-5 space-y-2 text-slate-600">
+                            <li><strong>注册：</strong> 填写基本信息。语言栏必须添加 "Chinese (Native)" 和 "English (Fluent)"。</li>
+                            <li><strong>APP：</strong> 下载 Clickworker 手机 App，很多拍照任务只能在手机做。</li>
+                            <li><strong>UHRS 考试：</strong> 这是核心！登录电脑端，点击 "Assessments"，找到 "UHRS I" 和 "UHRS II"。必须高分通过。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sky-700 flex items-center mb-2"><i class="fa-solid fa-sack-dollar mr-2"></i> 实操变现 (How to Earn)</h5>
+                        <ul class="list-disc pl-5 text-slate-600">
+                            <li><strong>进入 UHRS：</strong> 通过考试后，你会获得一个 @cw.uhrs.com 的微软账号。用这个号登录 UHRS 系统。</li>
+                            <li><strong>做 HitApp：</strong> 里面有各种任务（称为 HitApp），比如“判断搜索结果是否相关”。挑单价高、每小时时薪显示高的做。</li>
+                            <li><strong>收款：</strong> 每周三结账，支持 Payoneer。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-rose-50 p-4 rounded-xl border border-rose-100">
+                        <h5 class="font-bold text-rose-600 flex items-center mb-2 text-xs uppercase tracking-wider"><i class="fa-solid fa-triangle-exclamation mr-2"></i> 避坑指南 (Avoid Pitfalls)</h5>
+                        <ul class="list-disc pl-5 space-y-1 text-slate-500 text-xs">
+                            <li><strong>Speed Ban：</strong> 做任务不要太快！如果你做得比系统设定的最快时间还快，会被判定为机器人而封禁 (Temp Ban)。</li>
+                            <li><strong>Spam Accuracy：</strong> 保持高质量，会有隐藏测试题，连续做错会被永久踢出该项目。</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
             link: "https://www.clickworker.com/"
           },
           {
@@ -343,9 +553,34 @@
             salary: "$10-15/小时",
             tags: ["巨头", "美元"],
             suitability: "Medium",
-            desc: "全球最大的 AI 数据服务商。项目非常正规，长期有中文项目。",
-            strategy: "<h4 class='font-bold text-emerald-600 mb-2'>注册流程：</h4><p>1. 注册 Appen Connect，选择 'Chinese - China'。<br>2. 填写问卷，等待审核入库。</p><h4 class='font-bold text-sky-600 mt-4 mb-2'>如何赚钱：</h4><p>在 Projects 页面申请项目（如 Crescent, Yukon）。每个项目都要考资格试，务必阅读 100 页的 Guidelines 再考。</p>",
-            link: "https://connect.appen.com/"
+            desc: "全球数据标注巨头，现已改名为 CrowdGen。项目非常正规，种类繁多，是行业标杆。",
+            strategy: `
+                <div class="space-y-6">
+                    <div>
+                        <h5 class="font-bold text-emerald-700 flex items-center mb-2"><i class="fa-solid fa-user-plus mr-2"></i> 注册流程 (Registration)</h5>
+                        <ul class="list-decimal pl-5 space-y-2 text-slate-600">
+                            <li><strong>新网址：</strong> 访问 crowdgen.com 进行注册（旧的 connect 系统正在迁移）。</li>
+                            <li><strong>项目申请：</strong> 登录后点击 "Projects"。核心项目代号：<strong>Project Yukon</strong> (Google Search), <strong>Project Crescent</strong>, <strong>Arrow</strong>。</li>
+                            <li><strong>资格考试：</strong> 点击 Apply 后，会收到邮件让你考试。必须阅读长达百页的 Guidelines。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sky-700 flex items-center mb-2"><i class="fa-solid fa-sack-dollar mr-2"></i> 实操变现 (How to Earn)</h5>
+                        <ul class="list-disc pl-5 text-slate-600">
+                            <li><strong>长期饭票：</strong> 一旦考过进入项目，通常可以做半年以上，非常稳定。</li>
+                            <li><strong>Invoice：</strong> 每月初需要在系统里确认上个月的 Invoice，然后通过 Payoneer 打款。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-rose-50 p-4 rounded-xl border border-rose-100">
+                        <h5 class="font-bold text-rose-600 flex items-center mb-2 text-xs uppercase tracking-wider"><i class="fa-solid fa-triangle-exclamation mr-2"></i> 避坑指南 (Avoid Pitfalls)</h5>
+                        <ul class="list-disc pl-5 space-y-1 text-slate-500 text-xs">
+                            <li><strong>System Lag：</strong> 新系统 CrowdGen 目前非常卡顿，迁移过程中 Bug 很多，需要极大的耐心。</li>
+                            <li><strong>Multi-account：</strong> 严禁多账号，严禁同一个 IP 登录两个账号，会关联封号。</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
+            link: "https://crowdgen.com/"
           },
           {
             name: "UserTesting",
@@ -353,8 +588,34 @@
             salary: "$10/20分钟",
             tags: ["口语", "美元"],
             suitability: "Medium",
-            desc: "通过录屏吐槽网站/APP 的体验。需要敢于开口说英语。",
-            strategy: "<h4 class='font-bold text-emerald-600 mb-2'>注册流程：</h4><p>1. 注册需科学网络环境。<br>2. 完成试录：按照提示打开网页，一边操作一边大声说出你的想法（Think Aloud）。</p><h4 class='font-bold text-sky-600 mt-4 mb-2'>如何赚钱：</h4><p>通过筛选后，下载插件。看到任务就抢，测试过程约 15-20 分钟，说完上传，7 天后 PayPal 自动到账 $10。</p>",
+            desc: "最老牌的用户体验测试平台。你的任务是录制屏幕和声音，按照要求测试网站或 APP。",
+            strategy: `
+                <div class="space-y-6">
+                    <div>
+                        <h5 class="font-bold text-emerald-700 flex items-center mb-2"><i class="fa-solid fa-user-plus mr-2"></i> 注册流程 (Registration)</h5>
+                        <ul class="list-decimal pl-5 space-y-2 text-slate-600">
+                            <li><strong>环境：</strong> 注册时需开启全局科学网络环境。输入邮箱申请。</li>
+                            <li><strong>试录 (Practice Test)：</strong> 系统会让你下载录屏软件，进行一次模拟测试。这是唯一门槛。</li>
+                            <li><strong>核心技巧：</strong> 必须 <strong>Think Aloud</strong> (大声思考)。不要默默操作，要把脑子里的想法说出来：“我现在在找登录按钮，但我没找到，因为这个蓝色太淡了...”</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sky-700 flex items-center mb-2"><i class="fa-solid fa-sack-dollar mr-2"></i> 实操变现 (How to Earn)</h5>
+                        <ul class="list-disc pl-5 text-slate-600">
+                            <li><strong>抢单：</strong> 保持 Dashboard 开启。听到 "叮" 的一声提示音，立刻去抢。手慢无。</li>
+                            <li><strong>短任务：</strong> 有些只需回答几个选择题，几分钟赚 $4。长任务 $10。</li>
+                            <li><strong>Live 对话：</strong> 偶尔有 $30-$60 的实时视频访谈任务。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-rose-50 p-4 rounded-xl border border-rose-100">
+                        <h5 class="font-bold text-rose-600 flex items-center mb-2 text-xs uppercase tracking-wider"><i class="fa-solid fa-triangle-exclamation mr-2"></i> 避坑指南 (Avoid Pitfalls)</h5>
+                        <ul class="list-disc pl-5 space-y-1 text-slate-500 text-xs">
+                            <li><strong>Mic Quality：</strong> 麦克风音质必须清晰，不能有电流声或背景噪音。</li>
+                            <li><strong>Silence：</strong> 录制过程中如果沉默超过 10 秒，会被视为不合格。</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
             link: "https://www.usertesting.com/get-paid-to-test"
           },
           {
@@ -363,8 +624,33 @@
             salary: "$50-100/小时",
             tags: ["高单价", "美元"],
             suitability: "Medium",
-            desc: "一对一的 Zoom 访谈。针对特定人群（如程序员、宝妈、网购达人）。",
-            strategy: "<h4 class='font-bold text-emerald-600 mb-2'>注册流程：</h4><p>1. 建议使用 LinkedIn 注册以增加可信度。<br>2. 疯狂完善你的 Profile，标签打得越细越容易被搜到。</p><h4 class='font-bold text-sky-600 mt-4 mb-2'>如何赚钱：</h4><p>收到邮件邀请后，立刻填筛选问卷（Screener）。如果符合画像，对方会约时间视频聊 30-60 分钟。</p>",
+            desc: "主要做 1 对 1 的深度访谈 (Zoom)。寻找特定的人群（如软件工程师、Salesforce用户、甚至是网购牙膏的人）。",
+            strategy: `
+                <div class="space-y-6">
+                    <div>
+                        <h5 class="font-bold text-emerald-700 flex items-center mb-2"><i class="fa-solid fa-user-plus mr-2"></i> 注册流程 (Registration)</h5>
+                        <ul class="list-decimal pl-5 space-y-2 text-slate-600">
+                            <li><strong>LinkedIn 注册：</strong> 强烈建议使用 LinkedIn 账号直接注册，这能瞬间提升你的真实度评分。</li>
+                            <li><strong>Profile 标签：</strong> 疯狂完善你的个人资料。职业、技能、用的软件、家庭状况...标签越细，匹配到的概率越大。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sky-700 flex items-center mb-2"><i class="fa-solid fa-sack-dollar mr-2"></i> 实操变现 (How to Earn)</h5>
+                        <ul class="list-disc pl-5 text-slate-600">
+                            <li><strong>填 Screener：</strong> 收到邮件邀请后，第一时间点进去填筛选问卷。</li>
+                            <li><strong>诚实回答：</strong> 筛选问卷是为了确认你符合画像。如果符合，系统会让你选时间进行 Zoom 面试。</li>
+                            <li><strong>访谈：</strong> 准时上线，像聊天一样回答主持人的问题即可。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-rose-50 p-4 rounded-xl border border-rose-100">
+                        <h5 class="font-bold text-rose-600 flex items-center mb-2 text-xs uppercase tracking-wider"><i class="fa-solid fa-triangle-exclamation mr-2"></i> 避坑指南 (Avoid Pitfalls)</h5>
+                        <ul class="list-disc pl-5 space-y-1 text-slate-500 text-xs">
+                            <li><strong>Fake Guru：</strong> 不要为了通过筛选而撒谎（比如假装自己是 IT 经理）。访谈者都是专家，两句话就能识破你。</li>
+                            <li><strong>No Show：</strong> 预约了时间绝对不能爽约，一次爽约可能导致封号。</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
             link: "https://www.userinterviews.com/participants"
           },
           {
@@ -373,8 +659,33 @@
             salary: "项目制",
             tags: ["全球最大", "美元"],
             suitability: "Medium",
-            desc: "自由职业者的淘宝。适合有明确技能（翻译、设计、开发）的人。",
-            strategy: "<h4 class='font-bold text-emerald-600 mb-2'>注册流程：</h4><p>1. 个人 Profile 必须极其专业，头像要职业。<br>2. 初期需要购买 'Connects'（虚拟币）来投递标书。</p><h4 class='font-bold text-sky-600 mt-4 mb-2'>如何赚钱：</h4><p>新手建议先接几个低价短单积累 'Job Success Score'。避开群发模版，针对客户需求写 Proposal。</p>",
+            desc: "全球最大的自由职业市场。无论你是开发、设计、翻译还是做 PPT，这里都有你的位置。",
+            strategy: `
+                <div class="space-y-6">
+                    <div>
+                        <h5 class="font-bold text-emerald-700 flex items-center mb-2"><i class="fa-solid fa-user-plus mr-2"></i> 注册流程 (Registration)</h5>
+                        <ul class="list-decimal pl-5 space-y-2 text-slate-600">
+                            <li><strong>Profile：</strong> 头像要用职业照。Title 不要写 "I can do anything"，要写 "Expert React Developer" 这种垂直领域。</li>
+                            <li><strong>Portfolio：</strong> 务必上传作品集。没有实战项目就上传自己的练习作品。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sky-700 flex items-center mb-2"><i class="fa-solid fa-sack-dollar mr-2"></i> 实操变现 (How to Earn)</h5>
+                        <ul class="list-disc pl-5 text-slate-600">
+                            <li><strong>Connects：</strong> 现在投递简历需要花钱买虚拟币 (Connects)。建议每月预算 $15 左右。</li>
+                            <li><strong>Proposal 技巧：</strong> 永远不要复制粘贴模板！第一句话就要回应客户的痛点。例如："我看到你需要将 Figma 转为 Tailwind，我上周刚做过类似的..."</li>
+                            <li><strong>JSS：</strong> 前几个单子即便低价也要接，目的是拿到 5 星好评，建立 Job Success Score。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-rose-50 p-4 rounded-xl border border-rose-100">
+                        <h5 class="font-bold text-rose-600 flex items-center mb-2 text-xs uppercase tracking-wider"><i class="fa-solid fa-triangle-exclamation mr-2"></i> 避坑指南 (Avoid Pitfalls)</h5>
+                        <ul class="list-disc pl-5 space-y-1 text-slate-500 text-xs">
+                            <li><strong>Off-site Payment：</strong> 任何让你去 Telegram/WhatsApp 聊天的，或者发支票的，100% 是骗子。严禁在平台外交易。</li>
+                            <li><strong>ToS Violation：</strong> 保持沟通在 Upwork 站内进行，直到签约。</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
             link: "https://www.upwork.com/"
           },
           {
@@ -383,8 +694,31 @@
             salary: "按件/时薪",
             tags: ["入门", "美元"],
             suitability: "High",
-            desc: "Centific 旗下平台，近年来对中国用户非常友好，有很多中文本地化任务。",
-            strategy: "<h4 class='font-bold text-emerald-600 mb-2'>注册流程：</h4><p>1. 注册后进入 'Certifications' 板块。<br>2. 建议考取 'Chinese Language' 相关证书。</p><h4 class='font-bold text-sky-600 mt-4 mb-2'>如何赚钱：</h4><p>关注 'Jobs' 列表中的 'Data Collection'（如拍地标、录方言）或 'Judge' 类任务。门槛比 Appen 低。</p>",
+            desc: "Centific 旗下平台，近年来对中国用户非常友好。任务类型多样，门槛比 Appen 低。",
+            strategy: `
+                <div class="space-y-6">
+                    <div>
+                        <h5 class="font-bold text-emerald-700 flex items-center mb-2"><i class="fa-solid fa-user-plus mr-2"></i> 注册流程 (Registration)</h5>
+                        <ul class="list-decimal pl-5 space-y-2 text-slate-600">
+                            <li><strong>注册：</strong> 正常填写资料。</li>
+                            <li><strong>考证 (Certifications)：</strong> 进入 "Certifications" 板块，考取 "Native Language Verification (Chinese)" 和 "English Comprehension"。这些证书是接单的前提。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sky-700 flex items-center mb-2"><i class="fa-solid fa-sack-dollar mr-2"></i> 实操变现 (How to Earn)</h5>
+                        <ul class="list-disc pl-5 text-slate-600">
+                            <li><strong>Jobs：</strong> 关注 "Data Collection" 类目。常有“拍摄地标”、“录制方言”等简单任务。</li>
+                            <li><strong>UHRS：</strong> OneForma 也是 UHRS 的供应商之一，也可以通过这里申请 UHRS 账号。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-rose-50 p-4 rounded-xl border border-rose-100">
+                        <h5 class="font-bold text-rose-600 flex items-center mb-2 text-xs uppercase tracking-wider"><i class="fa-solid fa-triangle-exclamation mr-2"></i> 避坑指南 (Avoid Pitfalls)</h5>
+                        <ul class="list-disc pl-5 space-y-1 text-slate-500 text-xs">
+                            <li><strong>Duplicate Account：</strong> 如果你已经在 Clickworker 做 UHRS，就不要在 OneForma 申请 UHRS 了，会冲突封号。只做 OneForma 独有的采集任务即可。</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
             link: "https://my.oneforma.com/"
           },
           {
@@ -393,13 +727,37 @@
             salary: "月薪制",
             tags: ["国内", "设计"],
             suitability: "High",
-            desc: "国内高品质的远程工作签约平台。侧重设计、市场、研发。",
-            strategy: "<h4 class='font-bold text-emerald-600 mb-2'>注册流程：</h4><p>1. 它是审核制的，需要提交精选的作品集。<br>2. 只有前 5% 的申请者能入驻人才库。</p><h4 class='font-bold text-sky-600 mt-4 mb-2'>如何赚钱：</h4><p>一旦入库，会有专属经纪人帮你对接客户。通常是按月签约的长期远程职位，收入非常稳定。</p>",
+            desc: "国内最高品质的远程工作签约平台。主要面向高端设计、研发、市场人才。",
+            strategy: `
+                <div class="space-y-6">
+                    <div>
+                        <h5 class="font-bold text-emerald-700 flex items-center mb-2"><i class="fa-solid fa-user-plus mr-2"></i> 注册流程 (Registration)</h5>
+                        <ul class="list-decimal pl-5 space-y-2 text-slate-600">
+                            <li><strong>申请：</strong> 官网申请入驻。它是邀请/审核制的。</li>
+                            <li><strong>作品集：</strong> 这是核心！不要只放 JPG，要整理成案例 (Case Study)。展示你的思考过程，而不仅仅是结果。</li>
+                            <li><strong>笔试/面试：</strong> 通过初筛后，会有平台专家进行专业能力评估。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-sky-700 flex items-center mb-2"><i class="fa-solid fa-sack-dollar mr-2"></i> 实操变现 (How to Earn)</h5>
+                        <ul class="list-disc pl-5 text-slate-600">
+                            <li><strong>经纪人服务：</strong> 入库后，你不需要自己找客户。专属 Talent 经纪人会把你的 Profile 推送给匹配的甲方。</li>
+                            <li><strong>签约：</strong> 通常是按月签约（如每月 80 小时），薪资非常稳定，且不用担心烂尾，平台兜底。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-rose-50 p-4 rounded-xl border border-rose-100">
+                        <h5 class="font-bold text-rose-600 flex items-center mb-2 text-xs uppercase tracking-wider"><i class="fa-solid fa-triangle-exclamation mr-2"></i> 避坑指南 (Avoid Pitfalls)</h5>
+                        <ul class="list-disc pl-5 space-y-1 text-slate-500 text-xs">
+                            <li><strong>High Bar：</strong> 录取率仅 5% 左右。如果你是初级设计师或刚毕业，大概率进不去。不要浪费时间，建议先去电鸭积累经验。</li>
+                        </ul>
+                    </div>
+                </div>
+            `,
             link: "https://www.yuanling.com/"
           }
         ];
 
-        // --- 2. Chart Initialization (Custom Fresh Colors) ---
+        // --- 2. Chart Initialization (Updated Data) ---
         function initCharts() {
             // Salary Chart
             const ctxSalary = document.getElementById('salaryChart').getContext('2d');
@@ -441,14 +799,14 @@
                 }
             });
 
-            // Type Chart
+            // Type Chart - Updated Data (Domestic count changed from 5 to 4)
             const ctxType = document.getElementById('typeChart').getContext('2d');
             new Chart(ctxType, {
                 type: 'doughnut',
                 data: {
                     labels: ['国内平台', 'AI/数据', '综合/技能', '微任务'],
                     datasets: [{
-                        data: [5, 4, 3, 3],
+                        data: [4, 4, 3, 3], // Updated: Domestic 4
                         backgroundColor: [
                             '#f59e0b', // Orange (Domestic)
                             '#10b981', // Green (AI)
